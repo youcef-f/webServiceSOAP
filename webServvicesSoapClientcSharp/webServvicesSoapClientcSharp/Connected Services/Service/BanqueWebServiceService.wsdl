@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="BanqueWebServiceService" targetNamespace="http://service/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://192.168.10.1:8585/BWS?xsd=1" namespace="http://service/" />
+    </xsd:schema>
+  </types>
+  <message name="conversionEuroToDirham">
+    <part name="parameters" element="tns:conversionEuroToDirham" />
+  </message>
+  <message name="conversionEuroToDirhamResponse">
+    <part name="parameters" element="tns:conversionEuroToDirhamResponse" />
+  </message>
+  <message name="getCompte">
+    <part name="parameters" element="tns:getCompte" />
+  </message>
+  <message name="getCompteResponse">
+    <part name="parameters" element="tns:getCompteResponse" />
+  </message>
+  <message name="getComptes">
+    <part name="parameters" element="tns:getComptes" />
+  </message>
+  <message name="getComptesResponse">
+    <part name="parameters" element="tns:getComptesResponse" />
+  </message>
+  <portType name="BanqueWebService">
+    <operation name="conversionEuroToDirham">
+      <input wsam:Action="http://service/BanqueWebService/conversionEuroToDirhamRequest" message="tns:conversionEuroToDirham" />
+      <output wsam:Action="http://service/BanqueWebService/conversionEuroToDirhamResponse" message="tns:conversionEuroToDirhamResponse" />
+    </operation>
+    <operation name="getCompte">
+      <input wsam:Action="http://service/BanqueWebService/getCompteRequest" message="tns:getCompte" />
+      <output wsam:Action="http://service/BanqueWebService/getCompteResponse" message="tns:getCompteResponse" />
+    </operation>
+    <operation name="getComptes">
+      <input wsam:Action="http://service/BanqueWebService/getComptesRequest" message="tns:getComptes" />
+      <output wsam:Action="http://service/BanqueWebService/getComptesResponse" message="tns:getComptesResponse" />
+    </operation>
+  </portType>
+  <binding name="BanqueWebServicePortBinding" type="tns:BanqueWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="conversionEuroToDirham">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCompte">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getComptes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="BanqueWebServiceService">
+    <port name="BanqueWebServicePort" binding="tns:BanqueWebServicePortBinding">
+      <soap:address location="http://192.168.10.1:8585/BWS" />
+    </port>
+  </service>
+</definitions>
